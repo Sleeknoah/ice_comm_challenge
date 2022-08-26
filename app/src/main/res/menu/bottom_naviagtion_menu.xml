@@ -7,13 +7,13 @@
         android:icon="@drawable/ic_home_svgrepo"
         android:title="Product"/>
     <item
-        android:id="@+id/kyc"
+        android:id="@+id/category"
         android:enabled="true"
         android:icon="@drawable/ic_category"
         android:title="Categories"/>
 
     <item
-        android:id="@+id/earnings"
+        android:id="@+id/cart"
         android:enabled="true"
         android:icon="@drawable/ic_cart"
         android:title="Cart"/>

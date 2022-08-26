@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.icecommtest.model.request.LoginRequest;
+import com.example.icecommtest.model.request.SignUpRequest;
 import com.example.icecommtest.model.response.LoginResponse;
+import com.example.icecommtest.model.response.SignUpResponse;
 import com.example.icecommtest.utils.BaseUrl;
 
 import retrofit2.Call;
@@ -16,8 +18,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class AuthRepository {
     ApiInterface  apiInterface;
     public static MutableLiveData<LoginResponse> loginResponseMutableLiveData = new MutableLiveData<>();
+    public static MutableLiveData<SignUpResponse> signUpResponseMutableLiveData = new MutableLiveData<>();
 
     LoginResponse loginResponse = new LoginResponse();
+    SignUpResponse signUpResponse = new SignUpResponse();
+
 
     //Start Api Interface and connect to base url
     ApiInterface authInterface(){
@@ -58,6 +63,34 @@ public class AuthRepository {
                 loginResponseMutableLiveData.postValue(loginResponse);
             }
         });
+    }
+
+    //Make register request call  and get response from server
+    //And if successful update livedata accordingly
+    public void registerUser(SignUpRequest signUpRequest){
+        //Attach Api interface and make call
+        authInterface().signUp(signUpRequest)
+                .enqueue(new Callback<SignUpResponse>() {
+                    @Override
+                    public void onResponse(@NonNull Call<SignUpResponse> call,
+                                           @NonNull Response<SignUpResponse> response) {
+                        //Check if response is successful
+                        if (response.isSuccessful()){
+                            signUpResponseMutableLiveData.postValue(response.body());
+                        }else{
+                            //Because we do not know the nature of error
+                            // let us insert 0 to be safe as id usually start at 1
+                            signUpResponse.setId(0);
+                            signUpResponseMutableLiveData.postValue(signUpResponse);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<SignUpResponse> call, @NonNull Throwable t) {
+                        signUpResponse.setId(0);
+                        signUpResponseMutableLiveData.postValue(signUpResponse);
+                    }
+                });
     }
 
 }

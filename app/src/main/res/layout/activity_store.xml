@@ -14,6 +14,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_big"
             android:id="@+id/container"
             android:background="@color/white">
 
@@ -30,14 +31,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/circleImageView"
-                app:layout_constraintVertical_bias="0.5" />
+                app:layout_constraintTop_toTopOf="@+id/circleImageView" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/circleImageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_margin="@dimen/margin_big"
+                android:layout_marginEnd="@dimen/margin_big"
+                android:layout_marginTop="@dimen/margin_big"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -45,96 +46,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.2" />
 
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:overScrollMode="never"
-                android:scrollbars="none"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/circleImageView"
-                app:layout_constraintVertical_bias="0.0">
 
-                <RadioGroup
-                    android:id="@+id/noti_radio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_top_small"
-                    android:checkedButton="@id/electronics"
-                    android:gravity="start"
-                    android:layout_marginEnd="@dimen/margin_big"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/fragment_name"
-                    app:layout_constraintVertical_bias="0.0">
-
-                    <RadioButton
-                        android:id="@+id/electronics"
-                        style="@style/SubText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/margin_big"
-                        android:background="@drawable/tags"
-                        android:button="@android:color/transparent"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="30dp"
-                        android:text="@string/electronics"
-                        android:textColor="@drawable/tag_color" />
-
-                    <RadioButton
-                        android:id="@+id/jewelery"
-                        style="@style/SubText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_big"
-                        android:layout_marginBottom="@dimen/margin_big"
-                        android:background="@drawable/tags"
-                        android:button="@android:color/transparent"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="30dp"
-                        android:text="@string/jewelery"
-                        android:textAlignment="center"
-                        android:textColor="@drawable/tag_color" />
-
-                    <RadioButton
-                        android:id="@+id/mens"
-                        style="@style/SubText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_big"
-                        android:layout_marginTop="@dimen/margin_big"
-                        android:layout_marginBottom="@dimen/margin_big"
-                        android:background="@drawable/tags"
-                        android:button="@android:color/transparent"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="30dp"
-                        android:text="@string/men_s_clothing"
-                        android:textAlignment="center"
-                        android:textColor="@drawable/tag_color" />
-
-                    <RadioButton
-                        android:id="@+id/women"
-                        style="@style/SubText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/margin_big"
-                        android:background="@drawable/tags"
-                        android:button="@android:color/transparent"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="30dp"
-                        android:text="@string/women_s_clothing"
-                        android:textAlignment="center"
-                        android:textColor="@drawable/tag_color" />
-
-
-                </RadioGroup>
-            </HorizontalScrollView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

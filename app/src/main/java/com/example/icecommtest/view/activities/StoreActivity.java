@@ -34,6 +34,8 @@ public class StoreActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+        startFragment(PRODUCT);
+
         TranslucentScreenHelper.windowFlags(getWindow());
 
         //Load image into view
@@ -62,16 +64,16 @@ public class StoreActivity extends AppCompatActivity {
             return false;
         });
     }
-
+    //Fragment contain is replaced here with current fragment
     public void startFragment(int tag) {
         current_frag = tag;
-
         getSupportFragmentManager().beginTransaction()
                 .setReorderingAllowed(true)
                 .replace(R.id.fragment_container, setFragment(tag), null)
                 .commit();
     }
 
+    //Here the fragment switching takes place
     private Fragment setFragment(int tag) {
         switch (tag) {
             case PRODUCT:

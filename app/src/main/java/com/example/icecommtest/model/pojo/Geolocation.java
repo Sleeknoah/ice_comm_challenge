@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Geolocation{
 
-	@SerializedName("lng")
+	@SerializedName("long")
 	private String lng;
 
 	@SerializedName("lat")

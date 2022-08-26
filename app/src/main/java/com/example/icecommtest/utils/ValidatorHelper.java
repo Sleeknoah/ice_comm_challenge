@@ -13,12 +13,12 @@ public final class ValidatorHelper {
     public static Boolean isInputSanitized(String input, Boolean isEmail, TextInputLayout textInputLayout){
         if(isEmail){
             if (!isEmailSanitized(input)){
-                textInputLayout.setError("Valid email address required");
+                setError(textInputLayout, "Valid email address required");
                 return false;
             }
         }
         if (input.isEmpty() || input.equals(" ")){
-            textInputLayout.setError("Field cannot be empty");
+            setError(textInputLayout, "Field cannot be empty");
             return false;
         }
         textInputLayout.setErrorEnabled(false);
@@ -30,5 +30,31 @@ public final class ValidatorHelper {
         Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(input.trim());
         return matcher.matches();
+    }
+
+    public static Boolean isPasswordValid(String input1, String input2,
+                                   TextInputLayout pass1, TextInputLayout pass2){
+        if (input1.length() < 4){
+            setError(pass1, "Password cannot be less than four characters");
+            return false;
+        }else if (input2.length() < 4){
+            setError(pass2, "Password cannot be less than four characters");
+            return false;
+        }
+
+        if (!input1.equals(input2)){
+            setError(pass1, "Passwords must match");
+            return false;
+        }
+        pass1.setErrorEnabled(false);
+        pass2.setErrorEnabled(false);
+        return true;
+    }
+
+    private static void setError(TextInputLayout layout, CharSequence error){
+        if (!layout.isErrorEnabled()){
+            layout.setErrorEnabled(true);
+            layout.setError(error);
+        }
     }
 }

@@ -1,5 +1,7 @@
 package com.example.icecommtest.repositories.remote;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
@@ -77,6 +79,7 @@ public class AuthRepository {
                         //Check if response is successful
                         if (response.isSuccessful()){
                             signUpResponseMutableLiveData.postValue(response.body());
+                            Log.d(AuthRepository.class.getSimpleName(), "onResponse: " + response.body().getId());
                         }else{
                             //Because we do not know the nature of error
                             // let us insert 0 to be safe as id usually start at 1

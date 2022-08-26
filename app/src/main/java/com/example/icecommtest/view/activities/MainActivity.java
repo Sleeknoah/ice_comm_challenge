@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Go to Login page when button is pressed
         sign_up.setOnClickListener(v -> startActivity(
-                new Intent(getApplicationContext(), LoginActivity.class)));
+                new Intent(getApplicationContext(), SignUpActivity.class)));
 
         //Make StatusBar Translucent
         Window window = getWindow();

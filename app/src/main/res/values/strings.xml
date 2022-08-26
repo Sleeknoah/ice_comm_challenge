@@ -5,4 +5,8 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="token">icecommjwt</string>
+    <string name="men_s_clothing">Men\'s Clothing</string>
+    <string name="jewelery">Jewelery</string>
+    <string name="electronics">Electronics</string>
+    <string name="women_s_clothing">Women\'s Clothing</string>
 </resources>

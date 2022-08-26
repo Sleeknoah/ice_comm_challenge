@@ -51,8 +51,14 @@ public class MainActivity extends AppCompatActivity {
             //Change button text
             //Go to Store page when button is pressed
             sign_up.setText("Start Shopping");
-            sign_up.setOnClickListener(v -> startActivity(
-                    new Intent(getApplicationContext(), StoreActivity.class)));
+            sign_up.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), StoreActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+            });
         }
     }
 }

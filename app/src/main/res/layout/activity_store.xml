@@ -152,6 +152,8 @@
         android:layout_gravity="bottom"
         app:menu="@menu/bottom_naviagtion_menu"
         app:itemIconTint="@color/icon_colors"
-        app:itemTextColor="@color/black"/>
+        app:itemTextColor="@color/black"
+        app:itemIconSize="20dp"
+        android:padding="2dp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

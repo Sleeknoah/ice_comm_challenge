@@ -2,6 +2,7 @@ package com.example.icecommtest.view.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,11 +10,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.icecommtest.R;
 import com.example.icecommtest.model.response.ProductResponse;
+import com.example.icecommtest.view.activities.DetailsActivity;
 
 import java.util.List;
 
@@ -27,12 +30,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         private final TextView title;
         private final TextView price;
         private final AppCompatImageView imageView;
+        private final ConstraintLayout layout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.productTitle);
             price = itemView.findViewById(R.id.cost);
             imageView = itemView.findViewById(R.id.productImage);
+            layout    = itemView.findViewById(R.id.item);
         }
     }
 
@@ -61,11 +66,22 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             holder.title.setText(title);
         }
 
-        holder.price.setText("$" + String.valueOf(dataSet.get(position).getPrice()));
+        holder.price.setText("$" + dataSet.get(position).getPrice());
         //Load image into view
         Glide.with(context).
                 load(dataSet.get(position).getImage())
                 .into(holder.imageView);
+
+        //Send details of selected item to details screen(class) here
+
+        holder.layout.setOnClickListener(v -> {
+            Intent intent = new Intent(context, DetailsActivity.class);
+            intent.putExtra("title", dataSet.get(holder.getAdapterPosition()).getTitle());
+            intent.putExtra("desc", dataSet.get(holder.getAdapterPosition()).getDescription());
+            intent.putExtra("cost", "$" + dataSet.get(holder.getAdapterPosition()).getPrice());
+            intent.putExtra("image", dataSet.get(holder.getAdapterPosition()).getImage());
+            context.startActivity(intent);
+        });
     }
 
     @Override

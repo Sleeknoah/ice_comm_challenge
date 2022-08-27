@@ -28,6 +28,8 @@ public class CartFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
     }
 
     @Override
@@ -38,11 +40,11 @@ public class CartFragment extends Fragment {
 
         cartViewModel = new ViewModelProvider(this).get(CartViewModel.class);
 
-        cartViewModel.getAllCart().observe(requireActivity(), new Observer<List<Cart>>() {
+        cartViewModel.getAllCart().observe(getViewLifecycleOwner(), new Observer<List<Cart>>() {
             @Override
             public void onChanged(List<Cart> carts) {
                 if (carts != null && !carts.isEmpty()){
-                    CartAdapter adapter = new CartAdapter(requireActivity(), carts);
+                    CartAdapter adapter = new CartAdapter(requireContext(), carts);
                     binding.cartRecycler.setLayoutManager(new LinearLayoutManager(requireActivity()));
                     binding.cartRecycler.setAdapter(adapter);
                 }else {
@@ -53,5 +55,11 @@ public class CartFragment extends Fragment {
 
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        cartViewModel.getAllCart().removeObservers(getViewLifecycleOwner());
     }
 }

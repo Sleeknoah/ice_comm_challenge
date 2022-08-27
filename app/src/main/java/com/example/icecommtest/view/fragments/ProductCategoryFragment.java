@@ -1,5 +1,6 @@
 package com.example.icecommtest.view.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,62 +15,59 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.example.icecommtest.databinding.FragmentProductBinding;
+import com.example.icecommtest.databinding.FragmentProductCategoryBinding;
 import com.example.icecommtest.model.response.ProductResponse;
+import com.example.icecommtest.utils.ValidatorHelper;
+import com.example.icecommtest.view.activities.StoreActivity;
 import com.example.icecommtest.view.adapters.ProductAdapter;
 import com.example.icecommtest.viewmodel.MainViewModel;
+import com.example.icecommtest.viewmodel.SharedViewModel;
 
 import java.util.List;
 
 
-public class ProductFragment extends Fragment {
+public class ProductCategoryFragment extends Fragment {
 
-    private FragmentProductBinding binding;
+    private FragmentProductCategoryBinding binding;
     private ProductAdapter adapter;
     private MainViewModel mainViewModel;
-    String category;
-    RadioButton radioButton;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Activity activity = getActivity();
+        SharedViewModel sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+        //Check sharedViewModel and effect change in radio group
+        sharedViewModel.observeSharedData().observe(this,category -> {
+            if (category != null && activity != null) {
+                ((StoreActivity)activity).changeTitle(ValidatorHelper.capitalizeFirst(category));
+                updateUI(category);
+            }
+        });
     }
+
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = FragmentProductBinding.inflate(inflater, container, false);
+        binding = FragmentProductCategoryBinding.inflate(inflater, container, false);
 
         mainViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
 
-        View view = binding.getRoot();
-
-        radioButton = view.findViewById(binding.radio.getCheckedRadioButtonId());
-
-        binding.radio.setOnCheckedChangeListener((group, checkedId) -> {
-            radioButton = view.findViewById(checkedId);
-            category = radioButton.getText().toString().toLowerCase();
-            makeRequest(category);
-        });
-
-        return view;
+        return binding.getRoot();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        //Make api call on resume so we can always get new update
-        //Get text of selected button and save as category and make call
-        category = radioButton.getText().toString().toLowerCase();
+    private void updateUI(String category) {
         makeRequest(category);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        binding = null;
+
     }
 
     private void makeRequest(String category){
@@ -90,21 +88,18 @@ public class ProductFragment extends Fragment {
             }
         });
 
-
         productObservable.observe(getViewLifecycleOwner(), productResponse -> {
             if (productResponse != null){
-                if (!productResponse.isEmpty()){
-                    adapter = new ProductAdapter(requireActivity(), productResponse);
-                    // setting grid layout manager to implement grid view.
-                    // in this method '2' represents number of columns to be displayed in grid view.
-                    GridLayoutManager layoutManager=new GridLayoutManager(requireContext(),2);
+                adapter = new ProductAdapter(requireActivity(), productResponse);
+                // setting grid layout manager to implement grid view.
+                // in this method '2' represents number of columns to be displayed in grid view.
+                GridLayoutManager layoutManager=new GridLayoutManager(requireContext(),2);
 
-                    // at last set adapter to recycler view.
-                    binding.productRecycler.setLayoutManager(layoutManager);
-                    binding.productRecycler.setAdapter(adapter);
+                // at last set adapter to recycler view.
+                binding.productRecycler.setLayoutManager(layoutManager);
+                binding.productRecycler.setAdapter(adapter);
 
-                    binding.productRecycler.setVisibility(View.VISIBLE);
-                }
+                binding.productRecycler.setVisibility(View.VISIBLE);
             }
         });
     }

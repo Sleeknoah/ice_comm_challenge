@@ -16,6 +16,7 @@ import java.util.List;
 
 public class MainViewModel extends ViewModel {
     private MutableLiveData<List<ProductResponse>> productResponseMutableLiveData;
+    private MutableLiveData<List<String>> categoryResponseMutableLiveData;
     private MutableLiveData<String> messageMutableLiveData;
     MainRepository mainRepository;
 
@@ -42,6 +43,19 @@ public class MainViewModel extends ViewModel {
             messageMutableLiveData = MainRepository.messageMutableLiveData;
         }
         return messageMutableLiveData;
+    }
+
+    public void categories(){
+        init();
+        mainRepository.categories();
+    }
+
+    //Create Observable for category
+    public LiveData<List<String>> observeCategory(){
+        if (categoryResponseMutableLiveData == null){
+            categoryResponseMutableLiveData = MainRepository.categoryResponseMutableLiveData;
+        }
+        return categoryResponseMutableLiveData;
     }
 
 }

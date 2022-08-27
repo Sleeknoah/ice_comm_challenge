@@ -15,6 +15,7 @@ import com.example.icecommtest.databinding.ActivityStoreBinding;
 import com.example.icecommtest.utils.TranslucentScreenHelper;
 import com.example.icecommtest.view.fragments.CartFragment;
 import com.example.icecommtest.view.fragments.CategoryFragment;
+import com.example.icecommtest.view.fragments.ProductCategoryFragment;
 import com.example.icecommtest.view.fragments.ProductFragment;
 import com.example.icecommtest.view.fragments.ProfileFragment;
 
@@ -24,6 +25,7 @@ public class StoreActivity extends AppCompatActivity {
     private static final int CATEGORY = 1;
     private static final int CART = 2;
     private static final int PROFILE = 3;
+    private static final int PRODUCT_CATEGORY = 4;
     ActivityStoreBinding binding;
     private int current_frag = 0;
 
@@ -73,6 +75,17 @@ public class StoreActivity extends AppCompatActivity {
                 .replace(R.id.fragment_container, setFragment(tag), null)
                 .commit();
     }
+    //Fragment replaced with backstack
+    public void implementFragmentChange(int tag) {
+
+        current_frag = tag;
+
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.fragment_container, setFragment(tag), null)
+                .addToBackStack("CATEGORY")
+                .commit();
+    }
 
     //Here the fragment switching takes place
     @SuppressLint("SetTextI18n")
@@ -90,7 +103,15 @@ public class StoreActivity extends AppCompatActivity {
             case PROFILE:
                 binding.fragmentName.setText("Profile");
                 return new ProfileFragment();
+
+            case PRODUCT_CATEGORY:
+                return new ProductCategoryFragment();
         }
         return new ProductFragment();
+    }
+
+    //change title from any fragment
+    public void changeTitle(String title){
+        binding.fragmentName.setText(title);
     }
 }

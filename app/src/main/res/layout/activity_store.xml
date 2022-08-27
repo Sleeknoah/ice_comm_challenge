@@ -15,6 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_big"
+            android:paddingBottom="@dimen/margin_top_small"
             android:id="@+id/container"
             android:background="@color/white">
 

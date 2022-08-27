@@ -27,4 +27,8 @@ public interface ApiInterface {
     //Search product by Category
     @GET("products/category/{category}")
     Call<List<ProductResponse>> productCategory(@Path("category") String category);
+
+    //Get category list
+    @GET("products/categories")
+    Call<List<String>> category();
 }

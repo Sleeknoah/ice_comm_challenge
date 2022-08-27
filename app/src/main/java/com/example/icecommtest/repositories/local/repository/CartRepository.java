@@ -14,6 +14,7 @@ public class CartRepository {
 
     private CartDao mCartDao;
     private LiveData<List<Cart>> mAllCart;
+    Boolean mContainsPrimaryKey;
 
     public CartRepository(Application application) {
         CacheDatabase db = CacheDatabase.getDatabase(application);
@@ -25,6 +26,13 @@ public class CartRepository {
     // Observed LiveData will notify the observer when the data has changed.
     public LiveData<List<Cart>> mAllCart() {
         return mAllCart;
+    }
+
+    public Boolean containsPrimaryKey(String title){
+        CacheDatabase.databaseWriteExecutor.execute(() -> {
+            mContainsPrimaryKey = mCartDao.containsPrimaryKey(title);
+        });
+       return mContainsPrimaryKey;
     }
 
     // This method must be called on a non-UI thread or the app will throw an exception.

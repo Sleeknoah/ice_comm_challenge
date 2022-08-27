@@ -1,7 +1,9 @@
 package com.example.icecommtest.repositories.remote;
 
+import com.example.icecommtest.model.request.CartRequest;
 import com.example.icecommtest.model.request.LoginRequest;
 import com.example.icecommtest.model.request.SignUpRequest;
+import com.example.icecommtest.model.response.CartResponse;
 import com.example.icecommtest.model.response.LoginResponse;
 import com.example.icecommtest.model.response.ProductResponse;
 import com.example.icecommtest.model.response.SignUpResponse;
@@ -31,4 +33,8 @@ public interface ApiInterface {
     //Get category list
     @GET("products/categories")
     Call<List<String>> category();
+
+    //Add to cart
+    @POST("carts")
+    Call<CartResponse> addCart(@Body CartRequest cartRequest);
 }

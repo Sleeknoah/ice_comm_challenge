@@ -22,7 +22,8 @@ public class CartViewModel extends AndroidViewModel {
         mAllCart = mRepository.mAllCart();
     }
 
-    LiveData<List<Cart>> getAllCart() { return mAllCart; }
+    public LiveData<List<Cart>> getAllCart() { return mAllCart; }
 
-    public void insert(Cart cart) { mRepository.insert(cart); }
+    public void insert(Cart cart) { mRepository.
+            insert(cart); }
 }

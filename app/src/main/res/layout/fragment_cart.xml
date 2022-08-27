@@ -16,12 +16,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/product_recycler"
+        android:id="@+id/cart_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#EFEFEF"
-        android:visibility="invisible"
-        android:paddingBottom="63dp"
+        android:paddingBottom="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 

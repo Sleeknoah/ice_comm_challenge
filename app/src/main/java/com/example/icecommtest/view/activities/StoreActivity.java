@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -74,17 +75,21 @@ public class StoreActivity extends AppCompatActivity {
     }
 
     //Here the fragment switching takes place
+    @SuppressLint("SetTextI18n")
     private Fragment setFragment(int tag) {
         switch (tag) {
             case PRODUCT:
+                binding.fragmentName.setText("Home");
                 return new ProductFragment();
             case CATEGORY:
+                binding.fragmentName.setText("Category");
                 return new CategoryFragment();
             case CART:
+                binding.fragmentName.setText("Cart");
                 return new CartFragment();
             case PROFILE:
+                binding.fragmentName.setText("Profile");
                 return new ProfileFragment();
-
         }
         return new ProductFragment();
     }

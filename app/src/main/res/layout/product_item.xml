@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#EFEFEF">
+    android:layout_height="wrap_content"
+    >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -34,8 +34,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/productImage"
+                    android:layout_margin="@dimen/margin_big"
                     app:srcCompat="@drawable/backgroud"
-                    android:scaleType="centerCrop"/>
+                    android:scaleType="centerInside"/>
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
@@ -47,7 +48,7 @@
                     style="@style/HeaderText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/title"
+                    android:id="@+id/productTitle"
                     android:text="John Hardy Women's Legends Naga Gold  Silver Dragon Station Chain Bracelet"
                     android:maxLines="1"
                     android:textSize="14sp"

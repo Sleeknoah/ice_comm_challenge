@@ -1,5 +1,6 @@
 package com.example.icecommtest.view.activities;
 
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,5 +35,27 @@ public class DetailsActivity extends AppCompatActivity {
         Glide.with(getApplicationContext()).
                 load(getIntent().getStringExtra("image"))
                 .into(binding.image);
+
+        binding.add.setOnClickListener(v -> {
+            String qty = binding.qty.getText().toString();
+            addToQuantity(Integer.parseInt(qty));
+        });
+
+        binding.remove.setOnClickListener(v -> {
+            String qty = binding.qty.getText().toString();
+            removeQuantity(Integer.parseInt(qty));
+        });
+
+    }
+
+    private void addToQuantity(int qty){
+        int newQty = qty + 1;
+        binding.qty.setText(String.valueOf(newQty));
+    }
+    private void removeQuantity(int qty){
+        if (qty > 0){
+            int newQty = qty - 1;
+            binding.qty.setText(String.valueOf(newQty));
+        }
     }
 }

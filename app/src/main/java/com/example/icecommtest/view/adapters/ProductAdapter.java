@@ -66,7 +66,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             holder.title.setText(title);
         }
 
-        holder.price.setText("$" + dataSet.get(position).getPrice());
+        holder.price.setText("$" + dataSet.get(position).getPrice() + "0");
         //Load image into view
         Glide.with(context).
                 load(dataSet.get(position).getImage())

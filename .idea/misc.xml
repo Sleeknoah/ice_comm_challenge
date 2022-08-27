@@ -10,6 +10,8 @@
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/drawable/edit_text.xml" value="0.1895" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/drawable/hello.xml" value="0.19" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/drawable/home.xml" value="0.1865" />
+        <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.1885" />
+        <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/drawable/ic_baseline_remove_circle_24.xml" value="0.1885" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/drawable/ic_cart.xml" value="0.19" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/drawable/ic_circle.xml" value="0.19" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/drawable/ic_home.xml" value="0.19" />
@@ -28,9 +30,11 @@
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/activity_sign_up.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/activity_store.xml" value="0.20512820512820512" />
+        <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/category_item.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/fragment_cart.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/fragment_category.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/fragment_product.xml" value="0.20512820512820512" />
+        <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/fragment_product_category.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/fragment_profile.xml" value="0.1935897435897436" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/product_item.xml" value="0.4" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/menu/bottom_naviagtion_menu.xml" value="0.20512820512820512" />

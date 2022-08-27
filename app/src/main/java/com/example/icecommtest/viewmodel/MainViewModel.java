@@ -4,12 +4,9 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.icecommtest.model.request.LoginRequest;
-import com.example.icecommtest.model.request.SignUpRequest;
-import com.example.icecommtest.model.response.LoginResponse;
+import com.example.icecommtest.model.request.CartRequest;
+import com.example.icecommtest.model.response.CartResponse;
 import com.example.icecommtest.model.response.ProductResponse;
-import com.example.icecommtest.model.response.SignUpResponse;
-import com.example.icecommtest.repositories.remote.AuthRepository;
 import com.example.icecommtest.repositories.remote.MainRepository;
 
 import java.util.List;
@@ -18,6 +15,7 @@ public class MainViewModel extends ViewModel {
     private MutableLiveData<List<ProductResponse>> productResponseMutableLiveData;
     private MutableLiveData<List<String>> categoryResponseMutableLiveData;
     private MutableLiveData<String> messageMutableLiveData;
+    private MutableLiveData<CartResponse> cartResponseMutableLiveData;
     MainRepository mainRepository;
 
     private void init(){
@@ -56,6 +54,18 @@ public class MainViewModel extends ViewModel {
             categoryResponseMutableLiveData = MainRepository.categoryResponseMutableLiveData;
         }
         return categoryResponseMutableLiveData;
+    }
+
+    public void addCart(CartRequest cartRequest){
+        init();
+        mainRepository.addCart(cartRequest);
+    }
+
+    public LiveData<CartResponse> observeAddCart(){
+        if (cartResponseMutableLiveData == null){
+            cartResponseMutableLiveData = MainRepository.cartResponseMutableLiveData;
+        }
+        return cartResponseMutableLiveData;
     }
 
 }

@@ -81,8 +81,10 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
+    //Save user details
     private void updateUI(int id) {
         sharedPreferences.saveToken(String.valueOf(id));
+        sharedPreferences.saveUser(signUpRequest());
         Intent intent = new Intent(this, StoreActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.example.icecommtest.R;
+import com.example.icecommtest.model.request.SignUpRequest;
 
 public class CustomSharedPreferences {
     SharedPreferences sharedPreferences;
@@ -28,6 +29,18 @@ public class CustomSharedPreferences {
         setUpPref(mContext.getString(R.string.token));
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("access", token);
+        editor.apply();
+    }
+
+    public void saveUser(SignUpRequest signUpRequest){
+        setUpPref("user");
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("fname", signUpRequest.getName().getFirstname());
+        editor.putString("lname", signUpRequest.getName().getLastname());
+        editor.putString("email", signUpRequest.getEmail());
+        editor.putString("username", signUpRequest.getUsername());
+        editor.putString("phone", signUpRequest.getPhone());
+
         editor.apply();
     }
 

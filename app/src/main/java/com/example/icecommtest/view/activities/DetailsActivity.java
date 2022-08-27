@@ -53,7 +53,7 @@ public class DetailsActivity extends AppCompatActivity {
         binding.qty.setText(String.valueOf(newQty));
     }
     private void removeQuantity(int qty){
-        if (qty > 0){
+        if (qty > 1){
             int newQty = qty - 1;
             binding.qty.setText(String.valueOf(newQty));
         }

@@ -25,29 +25,30 @@ public class Cart {
     @ColumnInfo(name = "quantity")
     private Integer mQuantity;
 
-    public Cart(@NonNull String mTitle, @NonNull String mPrice, @NonNull String mImage, int mQuantity) {
+    public Cart(@NonNull String mTitle, @NonNull String mPrice, @NonNull String mImage, @NonNull Integer mQuantity) {
         this.mTitle = mTitle;
         this.mPrice = mPrice;
         this.mImage = mImage;
         this.mQuantity = mQuantity;
     }
 
-    @NonNull
-    public String getmTitle() {
+
+    public String getTitle() {
         return mTitle;
     }
 
-    @NonNull
-    public String getmPrice() {
+
+    public String getPrice() {
         return mPrice;
     }
 
-    @NonNull
-    public String getmImage() {
+
+    public String getImage() {
         return mImage;
     }
 
-    public int getmQuantity() {
+
+    public Integer getQuantity() {
         return mQuantity;
     }
 }

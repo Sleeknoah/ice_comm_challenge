@@ -4,7 +4,6 @@ package com.example.icecommtest.view.activities;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Build;
@@ -18,7 +17,6 @@ import com.example.icecommtest.model.request.CartRequest;
 import com.example.icecommtest.model.request.ProductsItem;
 import com.example.icecommtest.model.response.CartResponse;
 import com.example.icecommtest.repositories.local.entity.Cart;
-import com.example.icecommtest.repositories.remote.MainRepository;
 import com.example.icecommtest.utils.CustomProgress;
 import com.example.icecommtest.utils.CustomSharedPreferences;
 import com.example.icecommtest.utils.TranslucentScreenHelper;
@@ -36,7 +34,6 @@ public class DetailsActivity extends AppCompatActivity {
     MainViewModel mainViewModel;
     private LiveData<CartResponse> cartObservable;
     private CartViewModel cartViewModel;
-    private Boolean containsPrimaryKey;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -61,7 +58,14 @@ public class DetailsActivity extends AppCompatActivity {
         //Retrieve sent data from product adapter here
         binding.productTitle.setText(getIntent().getStringExtra("title"));
         binding.description.setText(getIntent().getStringExtra("desc"));
-        binding.cost.setText(getIntent().getStringExtra("cost"));
+        String decimals = getIntent().getStringExtra("cost").split("\\.")[1];
+        String cost = null;
+        if (decimals.length() == 1){
+            cost = getIntent().getStringExtra("cost") + "0";
+        }else{
+            cost = getIntent().getStringExtra("cost");
+        }
+        binding.cost.setText(cost);
 
         //Load image into view
         Glide.with(getApplicationContext()).

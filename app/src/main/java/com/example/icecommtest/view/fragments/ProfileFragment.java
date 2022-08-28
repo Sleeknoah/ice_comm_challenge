@@ -1,7 +1,5 @@
 package com.example.icecommtest.view.fragments;
 
-import static androidx.test.core.app.ApplicationProvider.getApplicationContext;
-
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -27,8 +25,6 @@ import com.example.icecommtest.utils.CustomProgress;
 import com.example.icecommtest.utils.CustomSharedPreferences;
 import com.example.icecommtest.utils.ValidatorHelper;
 import com.example.icecommtest.view.activities.MainActivity;
-import com.example.icecommtest.view.activities.SignUpActivity;
-import com.example.icecommtest.view.activities.StoreActivity;
 import com.example.icecommtest.viewmodel.AuthViewModel;
 
 import java.util.Objects;
@@ -41,6 +37,7 @@ public class ProfileFragment extends Fragment {
     private CustomSharedPreferences sharedPreferences;
     Boolean isFirstNameValid, isLastNameValid, isUserValid, isEmailValid, isPhoneValid;
     private LiveData<SignUpResponse> updateObservable;
+    int count = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,7 +56,7 @@ public class ProfileFragment extends Fragment {
         authViewModel = new ViewModelProvider(this).get(AuthViewModel.class);
 
         //Load image into view
-        Glide.with(getApplicationContext()).
+        Glide.with(requireActivity()).
                 load("https://images.unsplash.com/photo-1494790108377-be9c29b29330")
                 .into(binding.circleImageView);
 
@@ -82,28 +79,34 @@ public class ProfileFragment extends Fragment {
         //Livedata Observer is set here to observe change in the Login State
         updateObservable = authViewModel.observeUserUpdate();
 
-        updateObservable.observe(requireActivity(), signUpResponse -> {
+        updateObservable.observe(getViewLifecycleOwner(), signUpResponse -> {
             //dismiss progress dialog and check login response state here
             progress.dismissDialog();
             if (signUpResponse != null) {
                 if (signUpResponse.getId() != 0) {
-                    updateUI();
+                    if ( count == 0){
+                        updateUI();
+                        Toast.makeText(requireActivity(),
+                                "Update successful...", Toast.LENGTH_SHORT).show();
+                        count =1;
+                    }
                 } else {
-                    Toast.makeText(getApplicationContext(), "Update unsuccessful. Please try again", Toast.LENGTH_SHORT).show();
+                    if ( count == 0){
+                        Toast.makeText(requireActivity(),
+                                "Update unsuccessful. Please try again",
+                                Toast.LENGTH_SHORT).show();
+                    }
+
                 }
-                updateObservable.removeObservers(this);
             }
         });
 
-        binding.logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //logout user here
-                //Clear id and user details
-                sharedPreferences.clearPref(getString(R.string.token));
-                sharedPreferences.clearPref(getString(R.string.user_details));
-                logoutUpdateUI();
-            }
+        binding.logout.setOnClickListener(v -> {
+            //logout user here
+            //Clear id and user details
+            sharedPreferences.clearPref(getString(R.string.token));
+            sharedPreferences.clearPref(getString(R.string.user_details));
+            logoutUpdateUI();
         });
 
 
@@ -175,5 +178,11 @@ public class ProfileFragment extends Fragment {
                 false, binding.phoneLayout);
 
         return isFirstNameValid && isLastNameValid && isUserValid && isEmailValid && isPhoneValid;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        authViewModel.observeUserUpdate().removeObservers(getViewLifecycleOwner());
     }
 }

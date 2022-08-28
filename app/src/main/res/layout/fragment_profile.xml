@@ -32,8 +32,7 @@
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/circleImageView"
-            app:layout_constraintVertical_bias="0.0"
-            android:layout_marginTop="@dimen/margin_big">
+            app:layout_constraintVertical_bias="0.0">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -139,7 +138,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/phone"
                     android:background="@drawable/edit_text"
-                    android:imeOptions="actionNext"
+                    android:imeOptions="actionDone"
                     android:inputType="phone"
                     android:paddingStart="@dimen/margin_big"
                     android:paddingEnd="@dimen/margin_big"
@@ -172,6 +171,7 @@
             android:background="@drawable/button_logout"
             android:foreground="?android:attr/selectableItemBackgroundBorderless"
             android:padding="@dimen/margin_big"
+            android:visibility="gone"
             android:text="Logout User"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"

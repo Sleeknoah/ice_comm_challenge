@@ -4,12 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.example.icecommtest.R;
-import com.example.icecommtest.model.pojo.Address;
-import com.example.icecommtest.model.pojo.Geolocation;
 import com.example.icecommtest.model.pojo.Name;
 import com.example.icecommtest.model.request.SignUpRequest;
-
-import java.util.Objects;
 
 public class CustomSharedPreferences {
     SharedPreferences sharedPreferences;

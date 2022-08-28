@@ -1,7 +1,5 @@
 package com.example.icecommtest.repositories.remote;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
@@ -10,16 +8,12 @@ import com.example.icecommtest.model.request.SignUpRequest;
 import com.example.icecommtest.model.response.LoginResponse;
 import com.example.icecommtest.model.response.SignUpResponse;
 import com.example.icecommtest.utils.ApiHelper;
-import com.example.icecommtest.utils.BaseUrl;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AuthRepository {
-    ApiInterface  apiInterface;
     public static MutableLiveData<LoginResponse> loginResponseMutableLiveData = new MutableLiveData<>();
     public static MutableLiveData<SignUpResponse> signUpResponseMutableLiveData = new MutableLiveData<>();
     public static MutableLiveData<SignUpResponse> updateResponseMutableLiveData = new MutableLiveData<>();
@@ -27,25 +21,11 @@ public class AuthRepository {
     LoginResponse loginResponse = new LoginResponse();
     SignUpResponse signUpResponse = new SignUpResponse();
 
-
-    //Start Api Interface and connect to base url
-    ApiInterface authInterface(){
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BaseUrl.FAKE_API_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        apiInterface = retrofit.create(ApiInterface.class);
-
-        return apiInterface;
-    }
-
     //Make login request call  and get response from server
     //And if successful update livedata accordingly
     public void loginUser(LoginRequest loginRequest){
         //Attach Api interface and make call
-        authInterface().login(loginRequest)
+        ApiHelper.authInterface().login(loginRequest)
                 .enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(@NonNull Call<LoginResponse> call,
@@ -73,7 +53,7 @@ public class AuthRepository {
     //And if successful update livedata accordingly
     public void registerUser(SignUpRequest signUpRequest){
         //Attach Api interface and make call
-        authInterface().signUp(signUpRequest)
+        ApiHelper.authInterface().signUp(signUpRequest)
                 .enqueue(new Callback<SignUpResponse>() {
                     @Override
                     public void onResponse(@NonNull Call<SignUpResponse> call,
@@ -81,7 +61,6 @@ public class AuthRepository {
                         //Check if response is successful
                         if (response.isSuccessful()){
                             signUpResponseMutableLiveData.postValue(response.body());
-                            Log.d(AuthRepository.class.getSimpleName(), "onResponse: " + response.body().getId());
                         }else{
                             //Because we do not know the nature of error
                             // let us insert 0 to be safe as id usually start at 1

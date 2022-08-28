@@ -5,13 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.icecommtest.R;
+import com.example.icecommtest.model.pojo.Name;
 import com.example.icecommtest.model.request.LoginRequest;
+import com.example.icecommtest.model.request.SignUpRequest;
 import com.example.icecommtest.model.response.LoginResponse;
 import com.example.icecommtest.utils.CustomProgress;
 import com.example.icecommtest.utils.CustomSharedPreferences;
@@ -67,9 +70,13 @@ public class LoginActivity extends AppCompatActivity {
 
     //Here the next action is taken. Typically move to the Shopping screen
     //Also save the token for later use
-    private void updateUI(String token) {
+    private void updateUI() {
         Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
-        sharedPreferences.saveToken(token);
+        sharedPreferences.saveToken("11");
+        sharedPreferences.saveUser(dummyUserDetails());
+        Intent intent = new Intent(this, StoreActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     private void setLoginObservable(){
@@ -81,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
             progress.dismissDialog();
             if (loginResponse != null){
                 if (!loginResponse.getToken().equals("Error")){
-                    updateUI(loginResponse.getToken());
+                    updateUI();
                 }else{
                     Toast.makeText(getApplicationContext(), "Login unsuccessful. Please username or password for errors", Toast.LENGTH_SHORT).show();
                 }
@@ -100,5 +107,18 @@ public class LoginActivity extends AppCompatActivity {
         sharedPreferences = new CustomSharedPreferences(this);
     }
 
+    private SignUpRequest dummyUserDetails() {
+        SignUpRequest signUpRequest =  new SignUpRequest();
+        Name name = new Name();
+        name.setFirstname("Chimdike");
+        name.setLastname("Nnacheta");
+
+        signUpRequest.setName(name);
+        signUpRequest.setUsername("chimmyMusic");
+        signUpRequest.setEmail("nnacheta.chimdike@gmail.com");
+        signUpRequest.setPhone("08134192476");
+
+        return signUpRequest;
+    }
 
 }

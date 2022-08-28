@@ -13,6 +13,7 @@ import com.example.icecommtest.repositories.remote.AuthRepository;
 public class AuthViewModel extends ViewModel {
     private MutableLiveData<LoginResponse> loginResponseMutableLiveData;
     private MutableLiveData<SignUpResponse> signUpResponseMutableLiveData;
+    private MutableLiveData<SignUpResponse> updateResponseMutableLiveData;
     AuthRepository authRepository;
 
     private void init(){
@@ -45,5 +46,19 @@ public class AuthViewModel extends ViewModel {
             signUpResponseMutableLiveData = AuthRepository.signUpResponseMutableLiveData;
         }
         return signUpResponseMutableLiveData;
+    }
+
+    //Update user from view model
+    public void updateUser(int id, SignUpRequest signUpRequest){
+        init();
+        authRepository.updateUser(id, signUpRequest);
+    }
+
+    //Create Observable for user sign up
+    public LiveData<SignUpResponse> observeUserUpdate(){
+        if (updateResponseMutableLiveData == null){
+            updateResponseMutableLiveData = AuthRepository.updateResponseMutableLiveData;
+        }
+        return updateResponseMutableLiveData;
     }
 }

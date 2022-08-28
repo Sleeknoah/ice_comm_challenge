@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.fragments.ProductFragment">
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <RadioGroup
+            android:id="@+id/radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_big"
+            android:checkedButton="@id/electronics"
+            android:gravity="start"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_name"
+            app:layout_constraintVertical_bias="0.0">
+
+            <RadioButton
+                android:id="@+id/electronics"
+                style="@style/SubText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_big"
+                android:layout_marginEnd="@dimen/margin_top_small"
+                android:background="@drawable/tags"
+                android:button="@android:color/transparent"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:text="@string/electronics"
+                android:textColor="@drawable/tag_color" />
+
+            <RadioButton
+                android:id="@+id/jewelery"
+                style="@style/SubText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_big"
+                android:background="@drawable/tags"
+                android:button="@android:color/transparent"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:text="@string/jewelery"
+                android:textAlignment="center"
+                android:textColor="@drawable/tag_color" />
+
+            <RadioButton
+                android:id="@+id/mens"
+                style="@style/SubText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_top_small"
+                android:layout_marginBottom="@dimen/margin_big"
+                android:background="@drawable/tags"
+                android:button="@android:color/transparent"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:text="@string/men_s_clothing"
+                android:textAlignment="center"
+                android:textColor="@drawable/tag_color" />
+
+            <RadioButton
+                android:id="@+id/women"
+                style="@style/SubText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_top_small"
+                android:layout_marginEnd="@dimen/margin_big"
+                android:background="@drawable/tags"
+                android:button="@android:color/transparent"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:text="@string/women_s_clothing"
+                android:textAlignment="center"
+                android:textColor="@drawable/tag_color" />
+        </RadioGroup>
+    </HorizontalScrollView>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/product_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#EFEFEF"
+            android:paddingBottom="63dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

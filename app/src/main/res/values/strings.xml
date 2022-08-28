@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">IceCommTest</string>
+    <string name="title_app_name">FakeApi</string>
+    <string name="sign_up">Sign Up with Email</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="token">icecommjwt</string>
+    <string name="men_s_clothing">Men\'s Clothing</string>
+    <string name="jewelery">Jewelery</string>
+    <string name="electronics">Electronics</string>
+    <string name="women_s_clothing">Women\'s Clothing</string>
+    <string name="user_details">user</string>
 </resources>

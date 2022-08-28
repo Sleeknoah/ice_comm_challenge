@@ -65,6 +65,6 @@ public class CustomSharedPreferences {
 
     public String getSavedToken(){
         setUpPref(mContext.getString(R.string.token));
-        return sharedPreferences.getString("access", null);
+        return sharedPreferences.getString("access", "0");
     }
 }

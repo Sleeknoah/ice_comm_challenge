@@ -31,13 +31,38 @@
                 app:cardCornerRadius="30dp"
                 app:cardElevation="7dp"
                 >
-                <androidx.appcompat.widget.AppCompatImageView
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/productImage"
-                    android:layout_margin="@dimen/margin_big"
-                    app:srcCompat="@drawable/backgroud"
-                    android:scaleType="centerInside"/>
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/productImage"
+                        android:layout_margin="@dimen/margin_big"
+                        android:padding="@dimen/margin_big"
+                        app:srcCompat="@drawable/backgroud"
+                        android:scaleType="centerInside"/>
+
+
+
+                    <TextView
+                        android:id="@+id/cost"
+                        style="@style/HeaderText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="@dimen/margin_top_small"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_marginEnd="@dimen/margin_top_small"
+                        android:layout_marginBottom="@dimen/margin_top_small"
+                        android:maxLines="1"
+                        android:text="$430"
+                        android:textSize="14sp"
+
+                        />
+                </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
@@ -56,18 +81,7 @@
                     android:layout_marginStart="@dimen/margin_top_small"
                     android:layout_marginEnd="@dimen/margin_top_small"
                     android:layout_marginTop="@dimen/margin_top_small"/>
-                <TextView
-                    style="@style/HeaderText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/cost"
-                    android:text="$430"
-                    android:maxLines="1"
-                    android:textSize="14sp"
-                    android:layout_marginStart="@dimen/margin_top_small"
-                    android:layout_marginEnd="@dimen/margin_top_small"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:layout_marginBottom="@dimen/margin_top_small"/>
+
             </LinearLayout>
 
         </LinearLayout>

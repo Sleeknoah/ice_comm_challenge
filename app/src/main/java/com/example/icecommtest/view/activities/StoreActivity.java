@@ -43,7 +43,7 @@ public class StoreActivity extends AppCompatActivity {
 
         //Load image into view
         Glide.with(getApplicationContext()).
-                load("https://images.unsplash.com/photo-1494790108377-be9c29b29330")
+                load("https://i.im.ge/2022/08/28/ONcB0C.WhatsApp-Image-2022-08-28-at-5-01-31-PM.jpg")
                 .into(binding.circleImageView);
 
         //Check items and set fragments

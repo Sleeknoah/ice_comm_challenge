@@ -54,7 +54,7 @@
                     android:inputType="textPersonName"
                     android:paddingStart="@dimen/margin_big"
                     android:paddingEnd="@dimen/margin_big"
-                    android:paddingBottom="7dp"
+                    android:paddingBottom="10dp"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,7 +76,7 @@
                     android:inputType="textPersonName"
                     android:paddingStart="@dimen/margin_big"
                     android:paddingEnd="@dimen/margin_big"
-                    android:paddingBottom="7dp"
+                    android:paddingBottom="10dp"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,7 +99,7 @@
                     android:inputType="textPersonName"
                     android:paddingStart="@dimen/margin_big"
                     android:paddingEnd="@dimen/margin_big"
-                    android:paddingBottom="7dp"
+                    android:paddingBottom="10dp"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -121,7 +121,7 @@
                     android:inputType="textEmailAddress"
                     android:paddingStart="@dimen/margin_big"
                     android:paddingEnd="@dimen/margin_big"
-                    android:paddingBottom="7dp"
+                    android:paddingBottom="10dp"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -143,7 +143,7 @@
                     android:inputType="phone"
                     android:paddingStart="@dimen/margin_big"
                     android:paddingEnd="@dimen/margin_big"
-                    android:paddingBottom="7dp"
+                    android:paddingBottom="10dp"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -160,7 +160,7 @@
             android:layout_marginStart="@dimen/margin_big"
             android:background="@drawable/button_background"
             android:foreground="?android:attr/selectableItemBackgroundBorderless"
-            android:padding="@dimen/margin_big"
+            android:padding="@dimen/margin_top_small"
             android:text="Update User"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -17,22 +17,22 @@ import com.example.icecommtest.repositories.local.entity.Cart;
 
 import java.util.List;
 
-public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
+public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
 
     Context context;
     List<Cart> cartList;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class CartViewHolder extends RecyclerView.ViewHolder{
         private final TextView title;
         private final TextView cost;
         private final ImageView imageView;
 
 
-        public ViewHolder(@NonNull View itemView) {
+        public CartViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.cartTitle);
             cost = itemView.findViewById(R.id.cartCost);
-            imageView = itemView.findViewById(R.id.cart_image);;
+            imageView = itemView.findViewById(R.id.cart_image);
         }
     }
 
@@ -41,19 +41,19 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         this.cartList = cartList;
     }
 
+
+
     @NonNull
     @Override
-    public CartAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CartAdapter.CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.cart_item, parent, false);
-        return new ViewHolder(view);
+        return new CartViewHolder(view);
     }
-
-
-
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(@NonNull CartAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
+
         String title = cartList.get(position).getTitle();
         if (title.length() > 48){
             String titleConcat = title.substring(0, 48);

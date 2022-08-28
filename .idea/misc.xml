@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/drawable/button_background.xml" value="0.1895" />
+        <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/drawable/button_logout.xml" value="0.1885" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/drawable/carts.xml" value="0.19" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/drawable/category.xml" value="0.19" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/drawable/custom_container.xml" value="0.19" />
@@ -25,18 +26,20 @@
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/font/ibm_plex_sans_medium.xml" value="0.2299145299145299" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/font/ibm_plex_sans_thin.xml" value="0.2299145299145299" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/font/nunito_sans_bold.xml" value="0.2299145299145299" />
+        <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout-320dp/fragment_profile.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/activity_details.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/activity_sign_up.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/activity_store.xml" value="0.20512820512820512" />
+        <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/cart_footer.xml" value="0.176" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/cart_item.xml" value="0.4" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/category_item.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/fragment_cart.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/fragment_category.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/fragment_product.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/fragment_product_category.xml" value="0.20512820512820512" />
-        <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/fragment_profile.xml" value="0.1935897435897436" />
+        <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/fragment_profile.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/layout/product_item.xml" value="0.4" />
         <entry key="..\:/Users/CHUKWUEBUKA P. GREAT/AndroidStudioProjects/IceCommTest/app/src/main/res/menu/bottom_naviagtion_menu.xml" value="0.20512820512820512" />
       </map>

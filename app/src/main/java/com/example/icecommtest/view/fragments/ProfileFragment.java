@@ -57,7 +57,7 @@ public class ProfileFragment extends Fragment {
 
         //Load image into view
         Glide.with(requireActivity()).
-                load("https://images.unsplash.com/photo-1494790108377-be9c29b29330")
+                load("https://i.im.ge/2022/08/28/ONcB0C.WhatsApp-Image-2022-08-28-at-5-01-31-PM.jpg")
                 .into(binding.circleImageView);
 
         //Set all edit texts to save value
